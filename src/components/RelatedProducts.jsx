@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../context/ShopContext'
 import Title from './Title.jsx'
 import ProductItem from '../components/ProductItem';
-import { Link } from 'react-router-dom';
 
 const RelatedProducts = ({category,subCategory}) => {
     const {products}=useContext(ShopContext);
@@ -23,9 +22,9 @@ const RelatedProducts = ({category,subCategory}) => {
         </div>
         <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6'>
             {related.map((item,index)=>(
-                <Link to={`/product/${item._id}`} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+                <div onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                 <ProductItem key={index} name={item.name} id={item._id} price={item.price} image={item.image}/>
-                </Link>
+                </div>
             ))}
         </div>
       
